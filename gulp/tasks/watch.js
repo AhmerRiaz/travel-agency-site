@@ -17,10 +17,18 @@ var importGulp = require('gulp'),
 	 watch('./app/assets/styles/**/*.css' , function(){
 	 	importGulp.start('cssInject');
 	 })
+
+	 watch('./app/assets/scripts/**/*.js', function (){
+	 	importGulp.start('scriptRefresh');
+	 })
 	});
 
 	importGulp.task('cssInject', ['styles'] , function()
 	{
 		return importGulp.src('./app/temp/styles/styles.css').
 		pipe(browserSync.stream());
+	});
+
+	importGulp.task('scriptRefresh', ['script'], function () {
+		browserSync.reload();
 	});
