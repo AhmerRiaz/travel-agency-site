@@ -57,6 +57,10 @@
 			@mixin atMedium {
 				background-color: transparent;
 				font-size: 1rem;
+
+				&.is-current-link {
+					color: #fabb69;
+				}
 			}
 
 		}
